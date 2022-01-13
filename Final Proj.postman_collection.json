@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "ee331c40-4105-47f6-bff2-10d2dcf19096",
+		"name": "Final Proj",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CursaApis",
+			"item": [
+				{
+					"name": "show all Curse",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "show all Curse by idSofer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "rezerva Cursa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "executa Cursa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cursa/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cursa",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CerereApi",
+			"item": [
+				{
+					"name": "show all Cereri of one Client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "create CERERE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"plecare\":\"Bucuresti\",\r\n      \"sosire\":\"Suceava\",\r\n      \"data\":\"2015-10-1 3:00 PM GMT+1:00\",\r\n      \"pret\":5.5\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cereri/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cereri",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SoferApi",
+			"item": [
+				{
+					"name": "Soferi-All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "new Sofer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"nume\":\"Stan\",\r\n   \"prenume\":\"Cristina\",\r\n    \"telefon\":\"075245556\",\r\n    \"serienr\":\"IF58663\",\r\n    \"cnp\":\"588555666\",\r\n    \"numar_masina\":\"if677sdk\",\r\n    \"capacitate\":52\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/soferi",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"soferi"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ClientApi",
+			"item": [
+				{
+					"name": "Client-all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/clienti",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clienti"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new Client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n        \"nume\": \"Maxi Trans\",\r\n        \"telefon\": \"0756435432\",\r\n        \"cui\": \"RO523435\"\r\n        \r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/clienti",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clienti"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

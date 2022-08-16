@@ -1,4 +1,4 @@
-package com.unibuc.assig.FinalProject.controllers;
+package com.unibuc.assig.FinalProject.restControllers;
 
 import com.unibuc.assig.FinalProject.dtos.CerereDto;
 import com.unibuc.assig.FinalProject.models.Cerere;
@@ -16,6 +16,7 @@ import java.util.List;
 @RequestMapping("/cereri")
 @Api(value="/cereri", tags="Cereri ale Clientilor")
 public class CerereController {
+
 
     private CerereService cerereService;
 

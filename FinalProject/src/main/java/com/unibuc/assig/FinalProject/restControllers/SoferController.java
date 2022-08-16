@@ -1,4 +1,4 @@
-package com.unibuc.assig.FinalProject.controllers;
+package com.unibuc.assig.FinalProject.restControllers;
 
 
 import com.unibuc.assig.FinalProject.dtos.SoferDto;

@@ -5,6 +5,7 @@ import com.unibuc.assig.FinalProject.exceptions.notFoundExceptions.CursaNotFound
 import com.unibuc.assig.FinalProject.models.*;
 import com.unibuc.assig.FinalProject.repos.CursaRepo;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -13,9 +14,14 @@ import java.util.Optional;
 @Slf4j
 @Service
 public class CursaService {
-    
+
+    @Autowired
     private CursaRepo cursaRepo;
+
+    @Autowired
     private CerereService cerereService;
+
+    @Autowired
     private SoferService soferService;
 
     public CursaService(CursaRepo cursaRepo, CerereService cerereService, SoferService soferService) {
@@ -26,8 +32,11 @@ public class CursaService {
 
 
     public List<Cerere> getAllAvailableCurse() {
+        return cerereService.getAllAvailableCereri();
+    }
 
-            return cerereService.getAllAvailableCereri();
+    public List<Cursa> findAll() {
+        return cursaRepo.findAll();
     }
 
 
@@ -72,5 +81,14 @@ public class CursaService {
     public List<Cursa> getCursaBySoferId(long idSofer) {
         Sofer sofer = soferService.getSoferById(idSofer);
        return sofer.getCurse();
+    }
+
+    @Transactional
+    public void deleteById(Long id) {
+        Optional<Cursa> cursaOptional = cursaRepo.findById(id);
+        if (!cursaOptional.isPresent()) {
+            throw new RuntimeException("Cursa not found!");
+        }
+        cursaRepo.deleteById(id);
     }
 }

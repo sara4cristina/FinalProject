@@ -6,6 +6,7 @@ import com.unibuc.assig.FinalProject.models.Buletin;
 import com.unibuc.assig.FinalProject.models.Masina;
 import com.unibuc.assig.FinalProject.models.Sofer;
 import com.unibuc.assig.FinalProject.repos.SoferRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -15,8 +16,13 @@ import java.util.Optional;
 @Service
 public class SoferService {
 
+    @Autowired
     private SoferRepo soferRepo;
+
+    @Autowired
     private BuletinService buletinService;
+
+    @Autowired
     private MasinaService masinaService;
 
 
@@ -52,5 +58,14 @@ public class SoferService {
         {
             throw new SoferNotFoundException(idSofer);
         }
+    }
+    @Transactional
+    public void deleteById(Long id) {
+        Optional<Sofer> soferOptional = soferRepo.findById(id);
+        if (!soferOptional.isPresent()) {
+            throw new RuntimeException("Sofer not found!");
+        }
+        soferRepo.deleteById(id);
+
     }
 }

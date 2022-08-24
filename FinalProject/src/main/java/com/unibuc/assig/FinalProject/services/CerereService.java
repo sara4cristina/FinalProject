@@ -7,6 +7,7 @@ import com.unibuc.assig.FinalProject.models.Client;
 import com.unibuc.assig.FinalProject.models.RezervareType;
 import com.unibuc.assig.FinalProject.repos.CerereRepo;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -17,7 +18,9 @@ import java.util.Optional;
 @Service
 public class CerereService {
 
+    @Autowired
     private CerereRepo cerereRepo;
+    @Autowired
     private ClientService clientService;
 
 
@@ -50,6 +53,11 @@ public class CerereService {
         return cerereRepo.findByRezervare(RezervareType.NEREZERVAT);
     }
 
+    public List<Cerere> findAll()
+    {
+        return cerereRepo.findAll();
+    }
+
     public Cerere getCerereById(long idCerere) {
         Optional<Cerere> cerereOptional = cerereRepo.findById(idCerere);
         if(cerereOptional.isPresent())
@@ -66,5 +74,15 @@ public class CerereService {
     public Cerere updateCerere(Cerere cerere) {
          cerereRepo.updateRezervareCerere(RezervareType.REZERVAT, cerere.getId());
         return getCerereById(cerere.getId());
+    }
+
+    @Transactional
+    public void deleteById(Long id) {
+        Optional<Cerere> cerereOptional = cerereRepo.findById(id);
+        if (!cerereOptional.isPresent()) {
+            throw new RuntimeException("Cerere not found!");
+        }
+        cerereRepo.deleteById(id);
+
     }
 }

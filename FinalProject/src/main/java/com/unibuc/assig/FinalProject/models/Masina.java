@@ -1,6 +1,9 @@
 package com.unibuc.assig.FinalProject.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Masina {
@@ -9,6 +12,8 @@ public class Masina {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto_increment
     private long id;
 
+    @JsonProperty("numar_masina")
+    @NotBlank(message = "Numar Masina connot be null")
     @Column(name = "numar_masina")
     private String numar;
 

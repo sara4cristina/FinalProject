@@ -34,9 +34,15 @@ public class CursaController {
 
     @GetMapping("/info/{id}")
     public String showById(@PathVariable String id, Model model){
-        model.addAttribute("cursa",
-                cursaService.findCursaById(Long.valueOf(id)));
-        return "infoCursa";
+
+        Object response = cursaService.findCursaById(Long.valueOf(id));
+        if( response instanceof Cursa) {
+            model.addAttribute("cursa", response);
+            return "infoCursa";
+        }else{
+            model.addAttribute("error", response);
+            return "error";
+        }
     }
 
     @RequestMapping("/delete/{id}")

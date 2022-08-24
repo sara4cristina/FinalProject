@@ -1,4 +1,4 @@
-package com.unibuc.assig.FinalProject.configurations;
+package com.unibuc.assig.FinalProject.restControllers;
 
 import org.springframework.context.annotation.*;
 import springfox.documentation.builders.*;

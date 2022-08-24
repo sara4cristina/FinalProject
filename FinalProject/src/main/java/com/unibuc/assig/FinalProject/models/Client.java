@@ -3,6 +3,7 @@ package com.unibuc.assig.FinalProject.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 
@@ -13,12 +14,15 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto_increment
     private long id;
 
+    @NotBlank(message = "Nume cannot be null or blank")
     @Column(name = "nume_client")
     private String nume;
 
+    @NotBlank(message = "Telefon cannot be null or blank")
     @Column(name = "telefon_client")
     private String telefon;
 
+    @NotBlank(message = "Cui cannot be null or blank")
     @Column(name = "cui")
     private String cui;
 

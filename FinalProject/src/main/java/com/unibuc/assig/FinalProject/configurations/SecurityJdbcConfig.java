@@ -49,12 +49,12 @@ public class SecurityJdbcConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/participant/**").hasAnyRole("GUEST","ADMIN")
-                .antMatchers("/product/new").hasRole("ADMIN")
-                .antMatchers("/product/delete/*").hasRole("ADMIN")
-                .antMatchers("/product").hasRole("ADMIN")
-                .antMatchers("/product/info/*").hasAnyRole("GUEST","ADMIN")
-                .antMatchers("/product/list").hasAnyRole("GUEST","ADMIN")
+                .antMatchers("/cerere/list").hasAnyRole("GUEST","ADMIN")
+                .antMatchers("/cerere/new").hasRole("ADMIN")
+                .antMatchers("/sofer/**").hasRole("ADMIN")
+                .antMatchers("/masina/**").hasRole("ADMIN")
+                .antMatchers("/client/**").hasRole("ADMIN")
+                .antMatchers("/cerere/info/*").hasAnyRole("GUEST","ADMIN")
                 .and()
                 .formLogin().loginPage("/showLogInForm")
                 .loginProcessingUrl("/authUser")

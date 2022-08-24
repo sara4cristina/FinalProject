@@ -1,9 +1,7 @@
 package com.unibuc.assig.FinalProject.services;
 
 import com.unibuc.assig.FinalProject.exceptions.notFoundExceptions.CerereNotFoundException;
-import com.unibuc.assig.FinalProject.exceptions.notFoundExceptions.SoferNotFoundException;
 import com.unibuc.assig.FinalProject.models.Cerere;
-import com.unibuc.assig.FinalProject.models.Sofer;
 import com.unibuc.assig.FinalProject.repos.CerereRepo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

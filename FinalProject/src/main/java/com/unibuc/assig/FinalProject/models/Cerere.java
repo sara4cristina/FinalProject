@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Cerere {
@@ -13,20 +16,22 @@ public class Cerere {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto_increment
     private long id;
 
-
+    @NotBlank(message = "Plecare connot be null")
     @Column(name = "plecare")
     private String plecare;
 
-
+    @NotBlank(message = "Sosire connot be null")
     @Column(name = "sosire")
     private String sosire;
 
-
+    @NotBlank(message = "Data connot be null")
     @Column(name = "data")
     private String data;
 
 
     @Column(name = "pret")
+    @NotNull(message = "Pret connot be null")
+    @Min(0)
     private double pret;
 
 
@@ -42,8 +47,6 @@ public class Cerere {
     @JsonIgnore
     @OneToOne(mappedBy = "cerere")
     private Cursa cursa;
-
-
 
     public Cerere() {
     }

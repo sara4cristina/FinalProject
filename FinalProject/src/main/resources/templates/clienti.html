@@ -16,10 +16,9 @@ Logged user: <span sec:authentication="name">user</span> Roles: <span sec:authen
         <thead class="thead-inverse">
         <tr>
             <th>ID</th>
-            <th>Plecare</th>
-            <th>Sosire</th>
-            <th>Data</th>
-            <th>Info</th>
+            <th>Nume</th>
+            <th>Cui</th>
+            <th>Telefon</th>
             <th>Delete</th>
         </tr>
         </thead>
@@ -27,10 +26,9 @@ Logged user: <span sec:authentication="name">user</span> Roles: <span sec:authen
             th:class="${stat.odd}? 'table-light':'table-dark'"
                 >
             <td th:text="${client.id}">1</td>
-            <td th:text="${client.plecare}">Client 1</td>
-            <td th:text="${client.sosire}">Code</td>
-            <td th:text="${client.data}">Reserved price</td>
-            <td><a href="#" th:href="@{'/client/info/' + ${client.id}}">Info</a></td>
+            <td th:text="${client.nume}">Client 1</td>
+            <td th:text="${client.cui}">Code</td>
+            <td th:text="${client.telefon}">Reserved price</td>
             <td><a href="#" th:href="@{'/client/delete/' + ${client.id}}">Delete</a></td>
         </tr>
     </table>

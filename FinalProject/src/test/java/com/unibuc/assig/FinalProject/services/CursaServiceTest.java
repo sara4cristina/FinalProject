@@ -1,8 +1,6 @@
 package com.unibuc.assig.FinalProject.services;
 
-import com.unibuc.assig.FinalProject.exceptions.notFoundExceptions.ClientNotFoundException;
 import com.unibuc.assig.FinalProject.exceptions.notFoundExceptions.CursaNotFoundException;
-import com.unibuc.assig.FinalProject.models.Client;
 import com.unibuc.assig.FinalProject.models.Cursa;
 import com.unibuc.assig.FinalProject.repos.CursaRepo;
 import org.junit.jupiter.api.DisplayName;
@@ -11,9 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.ResponseEntity;
 
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;

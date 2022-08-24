@@ -19,17 +19,23 @@ Logged user: <span sec:authentication="name">user</span> Roles: <span sec:authen
             <th>Plecare</th>
             <th>Sosire</th>
             <th>Data</th>
+            <th>Sofer</th>
+            <th>Masina</th>
+            <th>Executie</th>
             <th>Info</th>
             <th>Delete</th>
         </tr>
         </thead>
-        <tr th:each="cursa, stat : ${cursa}"
+        <tr th:each="cursa, stat : ${curse}"
             th:class="${stat.odd}? 'table-light':'table-dark'"
                 >
-            <td th:text="${cursa.id}">1</td>
-            <td th:text="${cursa.plecare}">Cursa 1</td>
-            <td th:text="${cursa.sosire}">Code</td>
-            <td th:text="${cursa.data}">Reserved price</td>
+            <td th:text="${cursa.id}"></td>
+            <td th:text="${cursa.getCerere().plecare}"></td>
+            <td th:text="${cursa.getCerere().sosire}"></td>
+            <td th:text="${cursa.getCerere().data}"></td>
+            <td th:text="${cursa.getSofer().nume} +' '+ ${cursa.getSofer().prenume}"></td>
+            <td th:text="${cursa.getSofer().getMasina().getNumar()}"></td>
+            <td th:text="${cursa.executie}"></td>
             <td><a href="#" th:href="@{'/cursa/info/' + ${cursa.id}}">Info</a></td>
             <td><a href="#" th:href="@{'/cursa/delete/' + ${cursa.id}}">Delete</a></td>
         </tr>

@@ -16,10 +16,11 @@ Logged user: <span sec:authentication="name">user</span> Roles: <span sec:authen
         <thead class="thead-inverse">
         <tr>
             <th>ID</th>
-            <th>Plecare</th>
-            <th>Sosire</th>
-            <th>Data</th>
-            <th>Info</th>
+            <th>Nume</th>
+            <th>Telefon</th>
+            <th>Masina</th>
+            <th>Buletin</th>
+            <th>Cnp</th>
             <th>Delete</th>
         </tr>
         </thead>
@@ -27,10 +28,11 @@ Logged user: <span sec:authentication="name">user</span> Roles: <span sec:authen
             th:class="${stat.odd}? 'table-light':'table-dark'"
                 >
             <td th:text="${sofer.id}">1</td>
-            <td th:text="${sofer.plecare}">Sofer 1</td>
-            <td th:text="${sofer.sosire}">Code</td>
-            <td th:text="${sofer.data}">Reserved price</td>
-            <td><a href="#" th:href="@{'/sofer/info/' + ${sofer.id}}">Info</a></td>
+            <td th:text="${sofer.nume} + ' ' + ${sofer.prenume}">Sofer 1</td>
+            <td th:text="${sofer.telefon}">Telefon</td>
+            <td th:text="${sofer.getMasina().numar}">Masina</td>
+            <td th:text="${sofer.getBuletin().serie_nr}">SerieNumar</td>
+            <td th:text="${sofer.getBuletin().cnp}">Cnp</td>
             <td><a href="#" th:href="@{'/sofer/delete/' + ${sofer.id}}">Delete</a></td>
         </tr>
     </table>

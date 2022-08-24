@@ -13,12 +13,19 @@ import java.time.LocalDateTime;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler({AnObjectNotFound.class})
-    public ResponseEntity<String> handle(AnObjectNotFound e)
+    public String handle(AnObjectNotFound e)
     {
-        return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .body(e.getMessage() + " at " + LocalDateTime.now());
+        return e.getMessage() + " at " + LocalDateTime.now();
     }
+
+
+//    @ExceptionHandler({AnObjectNotFound.class})
+//    public ResponseEntity<String> handle(AnObjectNotFound e)
+//    {
+//        return ResponseEntity
+//                .status(HttpStatus.NOT_FOUND)
+//                .body(e.getMessage() + " at " + LocalDateTime.now());
+//    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<String> handle(MethodArgumentNotValidException e)

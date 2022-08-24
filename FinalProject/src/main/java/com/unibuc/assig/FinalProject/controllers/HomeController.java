@@ -37,5 +37,8 @@ public class HomeController {
         return "access_denied";
     }
 
+    @GetMapping("error")
+    public String error() {return "acces_denied";}
+
 
 }

@@ -35,12 +35,12 @@ public class Buletin {
         this.id = id;
     }
 
-    public String getSerie() {
+    public String getSerie_nr() {
         return serie_nr;
     }
 
-    public void setSerie(String serie) {
-        this.serie_nr = serie;
+    public void setSerie_nr(String serie_nr) {
+        this.serie_nr = serie_nr;
     }
 
     public String getCnp() {

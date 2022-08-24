@@ -27,31 +27,27 @@
             <ul class = "navbar-nav">
 
                 <li class="nav-item">
-                    <a class="nav-link text" href="VedeCurse.jsp">CURSE</a>
+                    <a class="nav-link text" href="/cursa/list">CURSE</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text" href="VedeSoferi.jsp">SOFERI</a>
+                    <a class="nav-link text" href="/cerere/list">CERERI</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text" href="VedeMasini.jsp">MASINI</a>
+                    <a class="nav-link text" href="/sofer/list">SOFERI</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text" href="VedeAngajatori.jsp">ANGAJATORI</a>
+                    <a class="nav-link text" href="/masina/list">MASINI</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text" href="/client/list">CLIENTI</a>
                 </li>
             </ul>
             <ul class="navbar navbar-nav navbar-right ">
-
-                <li class="dropdown"><a class="dropdown-toggle user" data-toggle="dropdown" href="#">UTILIZATOR<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#"  >Personalizati</a></li>
-                        <li><a href="#">Actualizari</a></li>
-                        <li><a href="#"class="text">Deconectare</a></li>
-                    </ul>
-                </li>
-
+                <form th:action="@{/logout}" method="POST"> <input type="submit" class="btn btn-primary" value="Logout"> </form>
             </ul>
         </div>
     </nav>
@@ -96,10 +92,10 @@ Logged user: <span sec:authentication="name">user</span> Roles: <span sec:authen
 
     </div>
 </div>
-<div class="col-md-3">
+<!--<div class="col-md-3">
     <form th:action="@{/logout}" method="POST"> <input type="submit" class="btn btn-primary" value="Logout"> </form>
 </div>
-
+-->
 
 </body>
 </html>

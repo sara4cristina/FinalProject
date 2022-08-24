@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {   font-family: 'Monserrat', sans-serif;}
+
+.navbar {
+	background: #555caa;
+	background: #696fb4;
+	/*background: #696fb4;
+	
+	/*opacity: 1;
+  margin: 0;
+  padding: 0 0 10px 0;*/
+}
+
+
+.text{
+color: #8c8ea8;
+color: #121254;
+/*;
+*/
+text-decoration:  none;
+}
+
+.user
+{
+	color: #121254;
+	
+}

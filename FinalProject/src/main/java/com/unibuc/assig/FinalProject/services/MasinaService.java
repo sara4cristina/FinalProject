@@ -2,6 +2,7 @@ package com.unibuc.assig.FinalProject.services;
 
 import com.unibuc.assig.FinalProject.models.Masina;
 import com.unibuc.assig.FinalProject.repos.MasinaRepo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 
 @Service
+@Slf4j
 public class MasinaService {
 
     @Autowired
@@ -21,6 +23,7 @@ public class MasinaService {
     }
 
     public Masina addMasina(Masina masina){
+        log.info("masina in repo" +masina.toString());
         return masinaRepo.save(masina);
     }
 

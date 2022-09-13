@@ -11,16 +11,18 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.LockModeType;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface CerereRepo extends JpaRepository<Cerere, Long> {
 
 
-    List<Cerere> findByClientEquals(long id);
 
-    List<Cerere> findByRezervare(RezervareType nerezervat);
+    Optional<Cerere> findById(long id);
 
-    @Modifying
+    List<Cerere> findAllByRezervareEquals(RezervareType rezervareType);
+
+                                                           @Modifying
     @Query( value = "update Cerere cer set cer.rezervare = :rezervareType where cer.id = :id")
     void updateRezervareCerere(RezervareType rezervareType, long id);
 

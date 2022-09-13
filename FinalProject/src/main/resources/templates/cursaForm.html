@@ -6,35 +6,39 @@
     <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
     <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <body>
-<form th:object="${product}" th:action="@{/product/}" method="post" enctype="multipart/form-data">
+<form th:object="${cursa}" th:action="@{/newcursa}" method="post">
     <input type="hidden" th:field="*{id}"/>
     <div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading" style="background-color:lightgray;">
-                <h1 class="panel-title">Product INFO</h1>
+                <h1 class="panel-title">Cursa INFO</h1>
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-3 form-group">
-                        <label>Product name:</label>
-                        <input type="text" class="form-control" th:field="*{name}"/>
+                        <label>Cursa name:</label>
+                        <input type="text" class="form-control" th:field="*{cerere.plecare}"/>
                     </div>
                     <div class="col-md-3 form-group">
                         <label>Code:</label>
-                        <input type="text" class="form-control" th:field="*{code}"/>
+                        <input type="text" class="form-control" th:field="*{getCerere().sosire}"/>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label>Code:</label>
+                        <input type="text" class="form-control" th:field="*{getCerere().data}"/>
                     </div>
                 </div>
 
 
                 <div class="row">
                     <div class="col-md-3 ">
-                        <div th:if="${product.categories == null}" class="row">
+                        <div th:if="${cursa.sofer == null}" class="row">
 
                             <div class="col-md-3">
-                                <label th:for="categories">Categories</label>
+                                <label th:for="categories">Soferi</label>
                                 <ul id="categories" style="list-style: none;">
-                                    <li th:each="category: ${categoriesAll}">
-                                        <input type="checkbox"
+                                    <li th:each="category: ${soferiAll}">
+                                        <input type="radio"
                                                th:field="*{categories}"
                                                th:value="${category.id}"/>
                                         <label

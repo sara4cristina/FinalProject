@@ -2,34 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cerere noua</title>
+    <title>Masina noua</title>
     <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
     <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <body>
-<form th:object="${cerere}" th:action="@{/cerere/}" method="post">
-    <input type="hidden" th:field="*{id}"/>
+<form th:object="${masina}" th:action="@{/masina/}" method="post">
     <div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading" style="background-color:lightgray;">
-                <h1 class="panel-title" style="background: #696fb4; color: #121254;">Cerere noua</h1>
+                <h1 class="panel-title" style="background: #696fb4; color: #121254;">Maina noua</h1>
             </div>
             <div class="panel-body">
                 <div class="row">
                     <div class="col-md-3 form-group">
-                        <label>Plecare:</label>
-                        <input type="text" class="form-control" th:field="*{plecare}"/>
+                        <label>Numar inmatriculare:</label>
+                        <input type="text" class="form-control" th:field="*{numar}"/>
                     </div>
                     <div class="col-md-3 form-group">
-                        <label>Sosire:</label>
-                        <input type="text" class="form-control" th:field="*{sosire}"/>
-                    </div>
-                    <div class="col-md-3 form-group">
-                        <label>Data:</label>
-                        <input type="text" class="form-control" th:field="*{data}"/>
-                    </div>
-                    <div class="col-md-3 form-group">
-                        <label>Id Client:</label>
-                        <input type="text" class="form-control" th:field="*{client.id}"/>
+                        <label>Capacitate:</label>
+                        <input type="text" class="form-control" th:field="*{capacitate}"/>
                     </div>
                 </div>
 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sofer nou</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<body>
+<form th:object="${sofer}" th:action="@{/sofer/}" method="post">
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="background-color:lightgray;">
+                <h1 class="panel-title" style="background: #696fb4; color: #121254;">Sofer nou</h1>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        <label>Nume:</label>
+                        <input type="text" class="form-control" th:field="*{nume}"/>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label>Prenume:</label>
+                        <input type="text" class="form-control" th:field="*{prenume}"/>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label>Telefon:</label>
+                        <input type="text" class="form-control" th:field="*{telefon}"/>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label>Cnp:</label>
+                        <input type="text" class="form-control" th:field="*{cnp}"/>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label>Serie si numar buletin:</label>
+                        <input type="text" class="form-control" th:field="*{serieNr}"/>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label>Nr masina:</label>
+                        <input type="text" class="form-control" th:field="*{numar_masina}"/>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label>Capacitate:</label>
+                        <input type="text" class="form-control" th:field="*{capacitate}"/>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-7 ml-md-auto">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</form>
+</body>
+</html>

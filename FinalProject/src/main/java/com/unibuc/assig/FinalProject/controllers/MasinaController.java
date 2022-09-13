@@ -2,6 +2,7 @@ package com.unibuc.assig.FinalProject.controllers;
 
 import com.unibuc.assig.FinalProject.models.Masina;
 import com.unibuc.assig.FinalProject.services.MasinaService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import java.util.List;
 
 
 @Controller
+@Slf4j
 public class MasinaController {
 
     @Autowired
@@ -43,14 +45,13 @@ public class MasinaController {
         return "masinaForm";
     }
 
-    @PostMapping("/masina/{id}")
+    @PostMapping("/masina")
     public String saveOrUpdate(@Valid @ModelAttribute Masina masina,
                                           BindingResult bindingResult
                                ){
         if (bindingResult.hasErrors()){
             return "masinaForm";
         }
-
         Masina savedMasina = masinaService.addMasina(masina);
         return "redirect:/masina/list" ;
     }

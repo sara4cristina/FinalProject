@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -40,6 +40,19 @@ public class CerereService {
         return cerereRepo.save(cerere);
     }
 
+    @Transactional
+    public Cerere createCerere(Cerere cerere)
+    {
+        log.info(cerere.toString());
+        long idClient = cerere.getClient().getId();
+        Client client = clientService.getClientById(idClient);
+        cerere.setClient(client);
+        cerere.setRezervare(RezervareType.NEREZERVAT);
+        Cerere cerereRaspuns = cerereRepo.save(cerere);
+
+        return cerereRepo.save(cerere);
+    }
+
     public List<Cerere> getAllCerereByClientId(long idClient) {
 
         Client clientById = clientService.getClientById(idClient);
@@ -49,10 +62,8 @@ public class CerereService {
 
 
     public List<Cerere> getAllAvailableCereri() {
-
-        return cerereRepo.findByRezervare(RezervareType.NEREZERVAT);
+        return cerereRepo.findAllByRezervareEquals(RezervareType.NEREZERVAT);
     }
-
     public List<Cerere> findAll()
     {
         return cerereRepo.findAll();

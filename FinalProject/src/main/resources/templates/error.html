@@ -12,13 +12,14 @@
             <div class="pannel-group">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1 class="panel-title" th:text="'unhandled exception'">Resource type</h1>
+                        <h1 class="panel-title" th:text="'Exception'">Resource type</h1>
                     </div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <label th:for="ex">Error</label>
-                                <p th:text="${error}">description</p>
+<!--                                <label th:for="error">Error</label>-->
+                                <p th:text="${error_msg}"></p>
+<!--                                <p th:text="${error_time}"></p>-->
                             </div>
                         </div>
                     </div>

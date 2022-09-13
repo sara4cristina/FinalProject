@@ -1,5 +1,8 @@
 package com.unibuc.assig.FinalProject.controllers;
 
+import com.unibuc.assig.FinalProject.dtos.SoferDto;
+import com.unibuc.assig.FinalProject.models.Buletin;
+import com.unibuc.assig.FinalProject.models.Masina;
 import com.unibuc.assig.FinalProject.models.Sofer;
 import com.unibuc.assig.FinalProject.services.SoferService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,19 +46,23 @@ public class SoferController {
 
     @RequestMapping("/new")
     public String newSofer(Model model) {
-        model.addAttribute("sofer", new Sofer());
+        model.addAttribute("sofer", new SoferDto());
         return "soferForm";
     }
 
-    @PostMapping("/{id}")
-    public String saveOrUpdate(@Valid @ModelAttribute Sofer sofer,
+    @PostMapping("/")
+    public String saveOrUpdate(@Valid @ModelAttribute SoferDto soferDto,
                                           BindingResult bindingResult
                                ){
         if (bindingResult.hasErrors()){
             return "soferForm";
         }
 
-        Sofer savedSofer = soferService.createSoferAccount(sofer);
+        Buletin reqBuletin = new Buletin(soferDto.getSerieNr(), soferDto.getCnp());
+        Masina reqMasina = new Masina(soferDto.getNumar_masina(), soferDto.getCapacitate());
+        Sofer reqSofer = new Sofer(soferDto.getNume(), soferDto.getPrenume(), soferDto.getTelefon(), reqBuletin, reqMasina);
+
+        Sofer savedSofer = soferService.createSoferAccount(reqSofer);
         return "redirect:/sofer/list" ;
     }
 

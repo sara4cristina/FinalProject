@@ -60,17 +60,12 @@ public class CursaService {
         return findCursaById(idCursa);
     }
 
-
-
     public Cursa findCursaById(long idCursa)
     {
         Optional<Cursa> cursaOptional = cursaRepo.findById(idCursa);
-        if(cursaOptional.isPresent())
-        {
+        if(cursaOptional.isPresent()){
             return cursaOptional.get();
-        }
-        else
-        {
+        }else        {
             throw new CursaNotFoundException(idCursa);
         }
 

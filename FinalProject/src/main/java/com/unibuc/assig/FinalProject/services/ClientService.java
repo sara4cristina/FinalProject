@@ -1,7 +1,6 @@
 package com.unibuc.assig.FinalProject.services;
 
 import com.unibuc.assig.FinalProject.exceptions.notFoundExceptions.ClientNotFoundException;
-import com.unibuc.assig.FinalProject.models.Cerere;
 import com.unibuc.assig.FinalProject.models.Client;
 import com.unibuc.assig.FinalProject.repos.ClientRepo;
 import org.springframework.beans.factory.annotation.Autowired;

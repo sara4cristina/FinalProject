@@ -79,13 +79,12 @@ public class SoferDto {
     }
 
 
-
-    public String getNumar_nr() {
+    public String getSerieNr() {
         return serieNr;
     }
 
-    public void setNumar_nr(String numar_nr) {
-        this.serieNr = numar_nr;
+    public void setSerieNr(String serieNr) {
+        this.serieNr = serieNr;
     }
 
     public String getCnp() {

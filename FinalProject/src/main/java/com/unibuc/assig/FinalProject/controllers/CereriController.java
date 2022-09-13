@@ -1,7 +1,12 @@
 package com.unibuc.assig.FinalProject.controllers;
 
 import com.unibuc.assig.FinalProject.models.Cerere;
+import com.unibuc.assig.FinalProject.models.Cursa;
+import com.unibuc.assig.FinalProject.models.RezervareType;
+import com.unibuc.assig.FinalProject.models.Sofer;
 import com.unibuc.assig.FinalProject.services.CerereService;
+import com.unibuc.assig.FinalProject.services.CursaService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,10 +15,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 
 @Controller
+@Slf4j
 public class CereriController {
 
     @Autowired
@@ -26,16 +33,10 @@ public class CereriController {
     @RequestMapping("/cerere/list")
     public ModelAndView cereriList(){
         ModelAndView modelAndView = new ModelAndView("cereri");
-        List<Cerere> cereri = cerereService.findAll();
+        List<Cerere> cereri = cerereService.getAllAvailableCereri();
         modelAndView.addObject("cereri",cereri);
-        return modelAndView;
-    }
 
-    @GetMapping("/cerere/info/{id}")
-    public String showById(@PathVariable String id, Model model){
-        model.addAttribute("cerere",
-                cerereService.getCerereById(Long.valueOf(id)));
-        return "info";
+        return modelAndView;
     }
 
     @RequestMapping("/cerere/delete/{id}")
@@ -50,16 +51,14 @@ public class CereriController {
         return "cereriForm";
     }
 
-    @PostMapping("/cerere/{id}")
+    @PostMapping("/cerere")
     public String saveOrUpdate(@Valid @ModelAttribute Cerere cerere,
-                                          BindingResult bindingResult,
-                               @PathVariable long id
+                                          BindingResult bindingResult
                                ){
         if (bindingResult.hasErrors()){
             return "cereriForm";
         }
-
-        Cerere savedCerere = cerereService.createCerere(cerere, id);
+        Cerere savedCerere = cerereService.createCerere(cerere);
         return "redirect:/cerere/list" ;
     }
 

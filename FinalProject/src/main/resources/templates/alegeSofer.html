@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cerere noua</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<body>
+<form th:action="@{/cursa/validate}">
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="background-color:lightgray;">
+                <h1 class="panel-title" style="background: #696fb4; color: #121254;">Cerere noua</h1>
+            </div>
+            <div class="col-md-3 form-group">
+                <label>IdCerere:</label>
+                <input type="text" class="form-control" th:name="idCerere"/>
+            </div>
+            <div class="col-md-3 form-group">
+                <label>IdSofer:</label>
+                <input type="text" class="form-control" th:name="idSofer"/>
+            </div>
+<!--            <input type="number" th:field="*{id}"  >-->
+<!--                &lt;!&ndash;                    <input type="hidden" th:name="*{idCursa}"  th:value="${cerere.id}">&ndash;&gt;-->
+
+<!--                &lt;!&ndash;                    <input type="submit" value="Valideaza cererea" th:action="@{'/cursa/validate/' + ${cerere.id}}">&ndash;&gt;-->
+<!--            </form>-->
+
+
+            <div class="row">
+
+                <div class="col-md-7 ml-md-auto">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</form>
+</body>
+</html>

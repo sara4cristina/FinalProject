@@ -32,30 +32,21 @@ public class ClientController {
         return modelAndView;
     }
 
-    @GetMapping("/info/{id}")
-    public String showById(@PathVariable String id, Model model){
-        model.addAttribute("client",
-                clientService.getClientById(Long.valueOf(id)));
-        return "infoClient";
-    }
-
     @RequestMapping("/delete/{id}")
     public String deleteById(@PathVariable String id){
         clientService.deleteById(Long.valueOf(id));
         return "redirect:/client/list";
     }
 
-    @RequestMapping("/validate/{idSofer}/{idCerere}")
+    @RequestMapping("/new")
     public String newClient(Model model) {
         model.addAttribute("client", new Client());
         return "clientForm";
     }
 
-    @PostMapping("/{idSofer}/{idCerere}")
+    @PostMapping("/")
     public String saveOrUpdate(@Valid @ModelAttribute Client client,
-                                          BindingResult bindingResult,
-                               @PathVariable long idSofer,
-                               @PathVariable long idCerere
+                                          BindingResult bindingResult
                                ){
         if (bindingResult.hasErrors()){
             return "clientForm";

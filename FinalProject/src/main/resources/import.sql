@@ -16,7 +16,7 @@ insert into sofer (nume_sofer, prenume_sofer, telefon_sofer, id_buletin, id_masi
 insert into sofer (nume_sofer, prenume_sofer, telefon_sofer, id_buletin, id_masina) values ('Iustea', 'Tinel', '0765445085','3','2');
 
 
-insert into cerere (data, plecare, sosire, pret,  client_id) values ('2015-10-1','Bucuresti','Suceava','56.6','1');
-insert into cerere (data, plecare, sosire, pret,  client_id) values ('2015-12-1','Bucuresti','Brasov','23.6','3');
-insert into cerere (data, plecare, sosire, pret,  client_id) values ('2015-10-18','Bucuresti','Craiova','24.8','3');
-insert into cerere (data, plecare, sosire, pret,  client_id) values ('2015-10-19','Bucuresti','Baia Mare','66.8','2');
+insert into cerere (data, plecare, sosire, pret,  client_id, rezervare) values ('2015-10-1','Bucuresti','Suceava','56.6','1','NEREZERVAT');
+insert into cerere (data, plecare, sosire, pret,  client_id, rezervare) values ('2015-12-1','Bucuresti','Brasov','23.6','3','NEREZERVAT');
+insert into cerere (data, plecare, sosire, pret,  client_id, rezervare) values ('2015-10-18','Bucuresti','Craiova','24.8','3','NEREZERVAT');
+insert into cerere (data, plecare, sosire, pret,  client_id, rezervare) values ('2015-10-19','Bucuresti','Baia Mare','66.8','2', 'NEREZERVAT');
